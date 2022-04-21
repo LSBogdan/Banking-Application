@@ -1,12 +1,13 @@
 package account;
 
 import card.*;
+import comparators.CardComparator;
+
 import java.util.*;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
-public class Account implements Comparator<Transaction> {
+public class Account {
     protected String IBAN;
     protected String name;
     protected String swift;
@@ -36,12 +37,6 @@ public class Account implements Comparator<Transaction> {
 
     public void deleteCard(Card card){
         cards.remove(card);
-    }
-
-    public int compare(Transaction t1, Transaction t2){
-        Double d1 = t1.getAmount();
-        Double d2 = t2.getAmount();
-        return d1.compareTo(d2);
     }
 
     public String getIBAN() {
@@ -91,6 +86,11 @@ public class Account implements Comparator<Transaction> {
     public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
     }
+
+   public void SortAccountCards(){
+       CardComparator cardComparator = new CardComparator();
+       Collections.sort(this.cards, cardComparator);
+   }
 
     @Override
     public String toString() {
