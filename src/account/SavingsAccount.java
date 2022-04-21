@@ -20,14 +20,6 @@ public class SavingsAccount extends Account{
         this.monthlyInterest = (savingsBalance * annuallInterestRate) / 12;
     }
 
-    public static double getAnnuallInterestRate() {
-        return annuallInterestRate;
-    }
-
-    public static void setAnnuallInterestRate(double annuallInterestRate) {
-        SavingsAccount.annuallInterestRate = annuallInterestRate;
-    }
-
     public double getMonthlyInterest() {
         return monthlyInterest;
     }
