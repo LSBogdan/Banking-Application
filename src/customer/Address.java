@@ -5,15 +5,13 @@ public class Address {
     private String county;
     private String city;
     private String street;
-    private int number;
-    private int postalCode;
+    private int number = 0;
+    private int postalCode = 0;
 
     public Address(){
         this.county = "";
         this.city = "";
         this.street = "";
-        this.number = 0;
-        this.postalCode = 0;
     }
 
     public Address(String county, String city, String street, int number, int postalCode){
