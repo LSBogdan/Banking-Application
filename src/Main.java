@@ -33,6 +33,10 @@ public class Main {
         for(int i = 0; i < cards.size(); i++)
             service.printCardDetails(cards.get(i));
 
+        a1.addCard(cards.get(1));
+        a1.addCard(cards.get(2));
+        service.printCardsSorted(a1);
+
 
         System.out.println("\nTranzactii:");
         Transaction t1 = service.createTransaction("RO49AAAA1B31007593840000", "RO49AAAA1B31007543811100", "Transfer", "4-2-2022", 500);
