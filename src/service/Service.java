@@ -50,6 +50,11 @@ public class Service {
         System.out.println(card.toString());
     }
 
+    public void printCardsSorted(Account account){
+        System.out.println("Before: " + account.getCards());
+        account.SortAccountCards();
+        System.out.println("After: " + account.getCards());
+    }
     public Transaction createTransaction(String sourceIBAN, String destIBAN, String description, String date, double amount){
         Transaction newTransaction = new Transaction(sourceIBAN, destIBAN, description, date, amount);
         return  newTransaction;
