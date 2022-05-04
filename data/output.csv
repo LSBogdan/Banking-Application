@@ -1,0 +1,1 @@
+Customer{customerId=1, firstName='Firstname1', lastName='Lastname1', cnp='0123456789', email='email1@gmail.com', phoneNumber='0777777777', dateOfBirth='10-12-1991', address=Address{county='Arges', city='Pitesti', street='Calea Bucuresti', number=232, postalCode=430324}}
