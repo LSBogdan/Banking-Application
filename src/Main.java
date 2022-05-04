@@ -7,15 +7,17 @@ import java.util.*;
 import java.util.ArrayList;
 
 public class Main {
-    static List<String> availableCommands = Arrays.asList("createCustomer", "help", "end");
+    static ArrayList<String> availableCommands = new ArrayList<>();
 
     private static void printAllCommands(){
-        for(int i = 0; i < availableCommands.size(); i++){
-            System.out.println((i + 1) + ". " + availableCommands.get(i));
-        }
+        availableCommands.forEach((n) -> System.out.println(n));
     }
 
     public static void main(String[] args){
+
+        Main.availableCommands.add("createCustomer");
+        Main.availableCommands.add("help");
+        Main.availableCommands.add("end");
 
         Scanner in = new Scanner(System.in);
         boolean end = false;
