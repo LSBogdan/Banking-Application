@@ -2,47 +2,48 @@ package account;
 
 
 public class SavingsAccount extends Account{
-    static private double annuallInterestRate;
-    private double savingsBalance;
-    private double monthlyInterest;
+    private final String startDate;
+    private final String endDate;
+    private final int interest;
 
-    public SavingsAccount(){
+    SavingsAccount(){
         super();
-        this.savingsBalance = 0.0;
+        this.startDate = "";
+        this.endDate = "";
+        this.interest = 0;
     }
 
-    public SavingsAccount(String IBAN, String name, String swift, int customerId, double amount) {
+    public SavingsAccount(String IBAN, String name, String swift, int customerId, double amount, String startDate, String endDate, int interest) {
         super(IBAN, name, swift, customerId, amount);
-        this.savingsBalance = amount;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.interest = interest;
     }
 
-    public void calculateMonthlyInterest(){
-        this.monthlyInterest = (savingsBalance * annuallInterestRate) / 12;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public double getMonthlyInterest() {
-        return monthlyInterest;
+    public String getEndDate() {
+        return endDate;
     }
 
-    public void setMonthlyInterest(double monthlyInterest) {
-        this.monthlyInterest = monthlyInterest;
-    }
-
-    public void calculateSavings(){
-        savingsBalance += this.monthlyInterest;
+    public int getInterest() {
+        return interest;
     }
 
     @Override
     public String toString() {
         return "SavingsAccount{" +
-                "IBAN='" + IBAN + '\'' +
+                ", IBAN='" + IBAN + '\'' +
                 ", name='" + name + '\'' +
                 ", swift='" + swift + '\'' +
                 ", customerId=" + customerId +
                 ", amount=" + amount +
                 ", cards=" + cards +
-                ", savingsBalance=" + savingsBalance +
-                ", monthlyInterest=" + monthlyInterest +
+                "startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", interest=" + interest +
                 '}';
     }
 }
