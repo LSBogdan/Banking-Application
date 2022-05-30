@@ -4,14 +4,29 @@ import account.*;
 import card.*;
 import customer.*;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Service {
 
+    private List<Customer> customers = new ArrayList<>();
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
     public Address createAddress(String county, String city, String street, int number, int postalCode){
         Address newAddress = new Address(county, city, street, number, postalCode);
         return newAddress;
     }
+
+
+//    public void createCustomer(Scanner in){
+//        System.out.println("First name: ");
+//        String firstName = in.nextLine();
+//
+//    }
 
     public Customer createCustomer(String county, String city, String street, int number, int postalCode, int customerId, String firstName, String lastName, String cnp, String email, String phoneNumber, String dateOfBirth){
         Address newAddress = createAddress(county, city, street, number, postalCode);
@@ -32,8 +47,8 @@ public class Service {
         System.out.println(account.toString());
     }
 
-    public SavingsAccount createSavingsAccount(String IBAN, String name, String swift, int customerId, double amount){
-        SavingsAccount newSavingsAccount = new SavingsAccount(IBAN, name, swift, customerId, amount);
+    public SavingsAccount createSavingsAccount(String IBAN, String name, String swift, int customerId, double amount, String startDate, String endDate, int interest){
+        SavingsAccount newSavingsAccount = new SavingsAccount(IBAN, name, swift, customerId, amount, startDate, endDate, interest);
         return newSavingsAccount;
     }
 
