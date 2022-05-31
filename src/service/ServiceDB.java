@@ -1,14 +1,18 @@
 package service;
 
+import account.Transaction;
 import customer.Customer;
 import dao.configuration.DatabaseConfig;
 import dao.repository.CustomerRepository;
+import dao.repository.TransactionRepository;
 
+import javax.sound.midi.Soundbank;
 import java.sql.SQLOutput;
 import java.util.*;
 
 public class ServiceDB {
 
+    // Customers
     public void createCustomer(CustomerRepository customerRepository){
         Scanner in = new Scanner(System.in);
 
@@ -71,5 +75,61 @@ public class ServiceDB {
         String username = in.nextLine();
 
         customerRepository.deleteCustomer(username);
+    }
+
+
+    // Transactions
+    public void createTransaction(TransactionRepository transactionRepository){
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("SOURCE IBAN: ");
+        String sourceIBAN = in.nextLine();
+
+        System.out.println("DESTINATION IBAN: ");
+        String destIBAN = in.nextLine();
+
+        System.out.println("DESCRIPTION: ");
+        String description = in.nextLine();
+
+        System.out.println("DATE: ");
+        String date = in.nextLine();
+
+        System.out.println("AMOUNT: ");
+        int amount = in.nextInt();
+        in.nextLine();
+
+        transactionRepository.insertTransaction(sourceIBAN, destIBAN, description, date, amount);
+    }
+
+    public void listAllTransactions(TransactionRepository transactionRepository){
+        transactionRepository.selectTransactions();
+    }
+
+    public void updateTransactionDescription(TransactionRepository transactionRepository){
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("SOURCE IBAN: ");
+        String sourceIBAN = in.nextLine();
+
+        System.out.println("DEST IBAN: ");
+        String destIBAN = in.nextLine();
+
+        System.out.println("DESCRIPTION: ");
+        String description = in.nextLine();
+
+        transactionRepository.updateDescription(sourceIBAN, destIBAN, description);
+    }
+
+    public void deleteTransaction(TransactionRepository transactionRepository){
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("SOURCE IBAN: ");
+        String sourceIBAN = in.nextLine();
+
+        System.out.println("DEST IBAN: ");
+        String destIBAN = in.nextLine();
+
+        transactionRepository.deleteTransaction(sourceIBAN, destIBAN);
     }
 }
